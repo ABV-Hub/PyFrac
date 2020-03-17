@@ -43,9 +43,10 @@ Fluid = FluidProperties(viscosity=viscosity)
 # simulation properties
 simulProp = SimulationProperties()
 simulProp.finalTime = 1e7                           # the time at which the simulation stops
-simulProp.saveTSJump, simulProp.plotTSJump = 5, 5   # save and plot after every 5 time steps
+simulProp.saveTSJump, simulProp.plotTSJump = 1, 1   # save and plot after every 5 time steps
 simulProp.set_outputFolder("./Data/MtoK_leakoff")   # the disk address where the files are saved
-simulProp.frontAdvancing = 'explicit'               # setting up explicit front advancing
+simulProp.frontAdvancing = 'implicit'               # setting up explicit front advancing
+simulProp.projMethod = 'LS_continousfront'
 
 # initializing fracture
 Fr_geometry = Geometry('radial')

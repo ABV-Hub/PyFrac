@@ -11,6 +11,8 @@ All rights reserved. See the LICENSE.TXT file for more details.
 toleranceFractureFront = 1.0e-3         # tolerance for the fracture front position solver.
 toleranceEHL = 1.0e-4                   # tolerance for the elastohydrodynamic system solver.
 tol_projection = 2.5e-3                 # tolerance for the toughness iteration.
+relative_transiton_distance = 1.0e-2    # tolerance for the regularization of the toughness heterogeneities
+relerr_at_the_transition_dist = 1.0e-3  # relative difference at the transiton_distance for the regularization of the toughness heterogeneities
 toleranceVStagnant = 1e-6               # tolerance on the velocity to decide if a cell is stagnant.
 
 # max iterations
@@ -45,6 +47,7 @@ plot_time_period = None                 # the time period after which the variab
 plot_TS_jump = 1                        # the number of time steps after which the given variables are plotted.
 save_time_period = None                 # the time period after which the output is saved to disk.
 save_TS_jump = 1                        # the number of time steps after which the output is saved to disk.
+save_to_json = False                    # you can decide if you want to save some information to json
 
 # type of solver
 elastohydr_solver = 'implicit_Anderson' # set the elasto-hydrodynamic system solver to implicit with Anderson iteration.

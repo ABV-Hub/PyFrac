@@ -15,6 +15,7 @@ import matplotlib.path as mpath
 from matplotlib.colors import to_rgb
 from matplotlib.collections import PatchCollection
 from properties import PlotProperties
+from default_parameters import relative_transiton_distance, relerr_at_the_transition_dist
 
 from visualization import zoom_factory, to_precision, text3d
 from symmetry import *
@@ -137,6 +138,24 @@ class CartesianMesh:
         self.NumberOfElts = self.nx * self.ny
         self.EltArea = self.hx * self.hy
 
+
+        """
+        Peruzzo 2020.
+        Consider the function H(s):= 1/(1+e^(-s/regularization_exponent))
+        In the domain we have heterogeneities e.g. in toughness or in stress. Since the description of toughness, for example,
+        is cell based, we have a sudden jump between two neighbour cells. This is a problem because it makes the function non 
+        continuous in space and more specifically the tip inversion will suffer to account for that. For this reason we use 
+        H(s) as regularising function in order to smoothly change from one value of parameter to another.
+        H(s) is providing the transition over a spatial distance ('transiton_distance') that is set to be a percentage 
+        ('relative_transiton_distance') of the diagonal of the cell ('cell_diagonal')
+        
+        In the following we define a parameter called 'regularization_exponent' that is mesh dependent and it is related with the 
+        """
+        #todo:complete
+        cell_diagonal = np.sqrt(self.hx**2 + self.hy**2)
+        transiton_distance = cell_diagonal * relative_transiton_distance
+        delta =0.0001
+        self.regularization_exponent =  transiton_distance * 0.5 * 1/np.log((1-delta)/delta)
 
         """
         We create a list of cell names thaht are colose to the boundary of the mesh. See the example below.
