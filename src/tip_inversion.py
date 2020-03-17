@@ -49,6 +49,15 @@ def TipAsym_k_kt(dist, *args):
 def TipAsym_k_exp(dist, *args):
     """Residual function for the near-field k expansion (Garagash & Detournay, 2011)"""
 
+    (wEltRibbon, Kprime, Eprime, muPrime, Cbar, DistLstTSEltRibbon, dt) = args
+
+    return -wEltRibbon + ( Kprime / Eprime ) ** 2 * dist ** (1/2)
+
+# ----------------------------------------------------------------------------------------------------------------------
+
+def TipAsym_k_exp(dist, *args):
+    """Residual function for the near-field k expansion (Garagash & Detournay, 2011)"""
+
     (wEltRibbon, Kprime, Eprime, fluidProp, Cbar, DistLstTSEltRibbon, dt) = args
 
     V = (dist - DistLstTSEltRibbon) / dt
