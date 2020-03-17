@@ -795,7 +795,6 @@ class SimulationProperties:
         self.plotTimePeriod = simul_param.plot_time_period
         self.plotVar = simul_param.plot_var
         self.saveTSJump = simul_param.save_TS_jump
-        self.saveTimePeriod = simul_param.save_time_period
         self.plotATsolTimeSeries = simul_param.plot_at_sol_time_series
         self.saveToJson = simul_param.save_to_json
 
