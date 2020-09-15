@@ -503,8 +503,8 @@ def FindBracket_dist(w, Kprime, Eprime, fluidProp, Cprime, DistLstTS, dt, mesh, 
 
 # ----------------------------------------------------------------------------------------------------------------------
 
-def TipAsymInversion(w, frac, matProp, fluidProp, simParmtrs, dt=None, Kprime_k=None, Eprime_k=None, delta_Kprime_k =None,
-                     dist_to_Kjump=None, perfNode=None):
+def TipAsymInversion(w, frac, matProp, fluidProp, simParmtrs, dt=None, Kprime_k=None, Eprime_k=None,
+                     delta_Kprime_k =None, dist_to_Kjump=None, perfNode=None):
     """ 
     Evaluate distance from the front using tip assymptotics according to the given regime, given the fracture width in
     the ribbon cells.
