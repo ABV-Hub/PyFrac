@@ -86,6 +86,7 @@ proj_method = 'ILSA_orig'               # set the method to evaluate projection 
 
 # AM adapted to define Chi in tip cells and tip regime in adjacent cells
 save_chi = False
+save_tip_regime = True
 
 # fracture geometry
 height = None                           # fracture height to calculate the analytical solution for PKN or KGD geometry.
